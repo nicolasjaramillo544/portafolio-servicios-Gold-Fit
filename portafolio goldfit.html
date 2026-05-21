@@ -1,0 +1,613 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Portafolio de Servicios — Gold Fit S.A.S.</title>
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Rajdhani:wght@400;500;600;700&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --gold: #C9A84C;
+    --gold-light: #F0C040;
+    --gold-dim: #8A6A20;
+    --black: #0A0A0A;
+    --dark: #111111;
+    --card: #161616;
+    --border: #2A2A2A;
+    --text: #E8E8E8;
+    --muted: #888;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    background: var(--black);
+    color: var(--text);
+    font-family: 'Inter', sans-serif;
+    min-height: 100vh;
+    padding: 40px 20px 60px;
+  }
+
+  /* ── HEADER ── */
+  .header {
+    text-align: center;
+    margin-bottom: 50px;
+    position: relative;
+  }
+  .header::before {
+    content: '';
+    display: block;
+    width: 60px;
+    height: 3px;
+    background: var(--gold);
+    margin: 0 auto 18px;
+  }
+  .logo-tag {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 11px;
+    letter-spacing: 6px;
+    color: var(--gold);
+    text-transform: uppercase;
+    margin-bottom: 8px;
+  }
+  .main-title {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: clamp(36px, 7vw, 62px);
+    letter-spacing: 4px;
+    line-height: 1;
+    color: #fff;
+  }
+  .main-title span { color: var(--gold); }
+  .subtitle {
+    font-family: 'Rajdhani', sans-serif;
+    font-size: 14px;
+    letter-spacing: 3px;
+    color: var(--muted);
+    text-transform: uppercase;
+    margin-top: 10px;
+  }
+  .header::after {
+    content: '';
+    display: block;
+    width: 120px;
+    height: 1px;
+    background: linear-gradient(90deg, transparent, var(--gold), transparent);
+    margin: 20px auto 0;
+  }
+
+  /* ── SECTION TITLE ── */
+  .section-label {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 13px;
+    letter-spacing: 5px;
+    color: var(--gold);
+    text-transform: uppercase;
+    margin-bottom: 16px;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+  }
+  .section-label::after {
+    content: '';
+    flex: 1;
+    height: 1px;
+    background: var(--border);
+  }
+
+  /* ── PLANES CARDS ── */
+  .planes-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+    gap: 16px;
+    margin-bottom: 50px;
+  }
+
+  .plan-card {
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-top: 3px solid var(--gold-dim);
+    padding: 24px 18px 20px;
+    position: relative;
+    transition: border-color .25s, transform .25s;
+  }
+  .plan-card:hover {
+    border-top-color: var(--gold-light);
+    transform: translateY(-3px);
+  }
+  .plan-card.featured {
+    border: 2px solid var(--gold);
+    background: #1A1500;
+  }
+  .plan-card.featured::before {
+    content: 'MÁS POPULAR';
+    position: absolute;
+    top: -12px;
+    left: 50%;
+    transform: translateX(-50%);
+    background: var(--gold);
+    color: #000;
+    font-family: 'Rajdhani', sans-serif;
+    font-size: 9px;
+    font-weight: 700;
+    letter-spacing: 2px;
+    padding: 3px 10px;
+    white-space: nowrap;
+  }
+
+  .plan-name {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 22px;
+    letter-spacing: 2px;
+    color: var(--gold-light);
+    margin-bottom: 6px;
+  }
+  .plan-price {
+    font-family: 'Rajdhani', sans-serif;
+    font-size: 32px;
+    font-weight: 700;
+    color: #fff;
+    line-height: 1;
+  }
+  .plan-price sup {
+    font-size: 16px;
+    font-weight: 400;
+    color: var(--gold);
+    vertical-align: super;
+  }
+  .plan-period {
+    font-size: 11px;
+    color: var(--muted);
+    letter-spacing: 1px;
+    margin-top: 4px;
+    margin-bottom: 14px;
+    text-transform: uppercase;
+  }
+  .plan-savings {
+    font-family: 'Rajdhani', sans-serif;
+    font-size: 11px;
+    color: #5DBB63;
+    font-weight: 600;
+    letter-spacing: 1px;
+    background: rgba(93,187,99,0.1);
+    border: 1px solid rgba(93,187,99,0.2);
+    padding: 3px 8px;
+    display: inline-block;
+    margin-top: 4px;
+  }
+
+  /* ── SERVICIOS TABLE ── */
+  .table-wrap {
+    overflow-x: auto;
+    margin-bottom: 50px;
+    border: 1px solid var(--border);
+  }
+
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    min-width: 640px;
+  }
+
+  thead tr {
+    background: #0E0E00;
+  }
+  th {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 13px;
+    letter-spacing: 2px;
+    color: var(--gold);
+    padding: 14px 16px;
+    text-align: left;
+    border-bottom: 2px solid var(--gold-dim);
+    white-space: nowrap;
+  }
+  th:first-child { padding-left: 20px; }
+
+  tbody tr {
+    border-bottom: 1px solid var(--border);
+    transition: background .15s;
+  }
+  tbody tr:hover { background: #1A1A0D; }
+  tbody tr:last-child { border-bottom: none; }
+
+  td {
+    font-family: 'Rajdhani', sans-serif;
+    font-size: 15px;
+    font-weight: 500;
+    padding: 13px 16px;
+    vertical-align: middle;
+    color: var(--text);
+  }
+  td:first-child {
+    padding-left: 20px;
+    font-weight: 600;
+    color: #fff;
+  }
+
+  .badge {
+    display: inline-block;
+    font-family: 'Rajdhani', sans-serif;
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 1.5px;
+    padding: 3px 8px;
+    text-transform: uppercase;
+  }
+  .badge-gold { background: rgba(201,168,76,.15); color: var(--gold); border: 1px solid var(--gold-dim); }
+  .badge-green { background: rgba(93,187,99,.12); color: #5DBB63; border: 1px solid rgba(93,187,99,.3); }
+  .badge-blue  { background: rgba(80,160,220,.12); color: #60B8E8; border: 1px solid rgba(80,160,220,.3); }
+  .badge-orange{ background: rgba(220,130,40,.12); color: #E08A40; border: 1px solid rgba(220,130,40,.3); }
+
+  .check { color: #5DBB63; font-size: 16px; }
+  .dash  { color: var(--border); font-size: 18px; }
+
+  /* ── COMPETENCIA COMPARISON ── */
+  .comp-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    gap: 0;
+    border: 1px solid var(--border);
+    margin-bottom: 50px;
+    min-width: 540px;
+    overflow: hidden;
+  }
+  .comp-cell {
+    padding: 14px 16px;
+    border-right: 1px solid var(--border);
+    border-bottom: 1px solid var(--border);
+    font-family: 'Rajdhani', sans-serif;
+    font-size: 13px;
+    color: var(--text);
+  }
+  .comp-cell:last-child { border-right: none; }
+  .comp-cell.head {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 13px;
+    letter-spacing: 2px;
+    color: var(--gold);
+    background: #0E0E00;
+    border-bottom: 2px solid var(--gold-dim);
+  }
+  .comp-cell.goldfit-col {
+    background: rgba(201,168,76,.05);
+    color: #fff;
+    font-weight: 600;
+  }
+  .comp-cell.goldfit-head {
+    background: var(--gold);
+    color: #000;
+    font-weight: 700;
+  }
+
+  /* ── FOOTER NOTE ── */
+  .footnote {
+    font-size: 12px;
+    color: var(--muted);
+    text-align: center;
+    line-height: 1.7;
+    border-top: 1px solid var(--border);
+    padding-top: 24px;
+    font-family: 'Rajdhani', sans-serif;
+  }
+  .footnote strong { color: var(--gold); font-weight: 600; }
+
+  /* ── SCROLL HINT ── */
+  .scroll-hint {
+    font-size: 11px;
+    color: var(--muted);
+    text-align: right;
+    margin-bottom: 6px;
+    font-family: 'Rajdhani', sans-serif;
+    letter-spacing: 1px;
+    display: none;
+  }
+  @media(max-width:700px){ .scroll-hint { display: block; } }
+</style>
+</head>
+<body>
+
+<!-- HEADER -->
+<div class="header">
+  <div class="logo-tag">Gold Fit S.A.S. · Buriticá, Antioquia</div>
+  <h1 class="main-title">Portafolio de <span>Servicios</span></h1>
+  <p class="subtitle">Sección 7 — Intervención Estratégica Organizacional · 2026</p>
+</div>
+
+<!-- ══════════════════════════════════════════
+     1. PLANES Y PRECIOS
+══════════════════════════════════════════ -->
+<div class="section-label">01 · Planes y Precios</div>
+
+<div class="planes-grid">
+
+  <div class="plan-card">
+    <div class="plan-name">Día</div>
+    <div class="plan-price"><sup>$</sup>10.000</div>
+    <div class="plan-period">Acceso por sesión</div>
+  </div>
+
+  <div class="plan-card">
+    <div class="plan-name">Estudiantil</div>
+    <div class="plan-price"><sup>$</sup>65.000</div>
+    <div class="plan-period">Mensual · con carné</div>
+    <div class="plan-savings">AHORRA $45.000 vs día</div>
+  </div>
+
+  <div class="plan-card featured">
+    <div class="plan-name">Mensual</div>
+    <div class="plan-price"><sup>$</sup>110.000</div>
+    <div class="plan-period">Por mes</div>
+    <div class="plan-savings">PLAN BASE</div>
+  </div>
+
+  <div class="plan-card">
+    <div class="plan-name">Trimestral</div>
+    <div class="plan-price"><sup>$</sup>300.000</div>
+    <div class="plan-period">3 meses ($100.000/mes)</div>
+    <div class="plan-savings">AHORRA $30.000</div>
+  </div>
+
+  <div class="plan-card">
+    <div class="plan-name">Anual</div>
+    <div class="plan-price"><sup>$</sup>800.000</div>
+    <div class="plan-period">12 meses ($66.666/mes)</div>
+    <div class="plan-savings">AHORRA $520.000</div>
+  </div>
+
+</div>
+
+<!-- ══════════════════════════════════════════
+     2. SERVICIOS INCLUIDOS
+══════════════════════════════════════════ -->
+<div class="section-label">02 · Descripción de Servicios</div>
+<div class="scroll-hint">← Desliza para ver la tabla completa →</div>
+
+<div class="table-wrap">
+<table>
+  <thead>
+    <tr>
+      <th>Servicio</th>
+      <th>Categoría</th>
+      <th>Descripción</th>
+      <th>Modalidad</th>
+      <th>Población objetivo</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Entrenamiento personalizado</td>
+      <td><span class="badge badge-gold">Premium</span></td>
+      <td>Programa diseñado 1 a 1 según objetivos, condición física y estado de salud del usuario. Incluye valoración inicial y seguimiento mensual.</td>
+      <td>Individual</td>
+      <td>Todas las edades</td>
+    </tr>
+    <tr>
+      <td>Acompañamiento semi personalizado</td>
+      <td><span class="badge badge-blue">Grupal</span></td>
+      <td>Grupos reducidos (máx. 4 personas) con supervisión directa del entrenador. Objetivos similares entre participantes.</td>
+      <td>Grupos pequeños</td>
+      <td>Jóvenes y adultos</td>
+    </tr>
+    <tr>
+      <td>Clases GAP</td>
+      <td><span class="badge badge-green">Grupal</span></td>
+      <td>Rutina específica de Glúteo, Abdomen y Pierna. Alta intensidad enfocada en tonificación y definición de tren inferior.</td>
+      <td>Clase grupal</td>
+      <td>Principalmente mujeres 16–45 años</td>
+    </tr>
+    <tr>
+      <td>Clases de Rumba Aeróbica</td>
+      <td><span class="badge badge-green">Grupal</span></td>
+      <td>Sesiones de baile aeróbico de bajo impacto articular. Mejora cardiovascular, coordinación y bienestar emocional a través del movimiento.</td>
+      <td>Clase grupal</td>
+      <td>Adultos y adultos mayores</td>
+    </tr>
+    <tr>
+      <td>Indoor Cycling</td>
+      <td><span class="badge badge-blue">Grupal</span></td>
+      <td>Entrenamiento en bicicleta estática con intervalos de intensidad variable. Excelente para quema calórica y salud cardiovascular.</td>
+      <td>Clase grupal</td>
+      <td>Jóvenes y adultos</td>
+    </tr>
+    <tr>
+      <td>Entrenamiento HIIT</td>
+      <td><span class="badge badge-orange">Intensivo</span></td>
+      <td>High Intensity Interval Training: bloques cortos de máxima intensidad alternados con recuperación activa. Optimiza metabolismo y resistencia.</td>
+      <td>Grupal / Individual</td>
+      <td>Adultos 18–45 años</td>
+    </tr>
+    <tr>
+      <td>Entrenamiento de Core</td>
+      <td><span class="badge badge-blue">Grupal</span></td>
+      <td>Fortalecimiento de la musculatura profunda del tronco: estabilizadores, diafragma y suelo pélvico. Base de todo movimiento funcional.</td>
+      <td>Clase grupal</td>
+      <td>Todas las edades</td>
+    </tr>
+    <tr>
+      <td>Sesiones de Readaptación</td>
+      <td><span class="badge badge-gold">Especializado</span></td>
+      <td>Programa supervisado por fisioterapeuta para usuarios con lesiones, patologías o post-cirugía. Retorno gradual y seguro a la actividad física.</td>
+      <td>Individual</td>
+      <td>Adultos y adultos mayores</td>
+    </tr>
+    <tr>
+      <td>Orientación Nutricional</td>
+      <td><span class="badge badge-gold">Complementario</span></td>
+      <td>Valoración nutricional básica, plan alimenticio y seguimiento mensual realizado por nutricionista. Complemento esencial al programa de entrenamiento.</td>
+      <td>Individual</td>
+      <td>Todas las edades</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+
+<!-- ══════════════════════════════════════════
+     3. SERVICIOS POR PLAN
+══════════════════════════════════════════ -->
+<div class="section-label">03 · Inclusión de Servicios por Plan</div>
+<div class="scroll-hint">← Desliza para ver la tabla completa →</div>
+
+<div class="table-wrap">
+<table>
+  <thead>
+    <tr>
+      <th>Servicio</th>
+      <th>Día</th>
+      <th>Estudiantil</th>
+      <th>Mensual</th>
+      <th>Trimestral</th>
+      <th>Anual</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Acceso libre a equipos</td>
+      <td><span class="check">✔</span></td>
+      <td><span class="check">✔</span></td>
+      <td><span class="check">✔</span></td>
+      <td><span class="check">✔</span></td>
+      <td><span class="check">✔</span></td>
+    </tr>
+    <tr>
+      <td>Clases grupales (GAP, Rumba, Core, HIIT)</td>
+      <td><span class="dash">—</span></td>
+      <td><span class="check">✔</span></td>
+      <td><span class="check">✔</span></td>
+      <td><span class="check">✔</span></td>
+      <td><span class="check">✔</span></td>
+    </tr>
+    <tr>
+      <td>Indoor Cycling</td>
+      <td><span class="dash">—</span></td>
+      <td><span class="check">✔</span></td>
+      <td><span class="check">✔</span></td>
+      <td><span class="check">✔</span></td>
+      <td><span class="check">✔</span></td>
+    </tr>
+    <tr>
+      <td>Valoración física inicial</td>
+      <td><span class="dash">—</span></td>
+      <td><span class="check">✔</span></td>
+      <td><span class="check">✔</span></td>
+      <td><span class="check">✔</span></td>
+      <td><span class="check">✔</span></td>
+    </tr>
+    <tr>
+      <td>Acompañamiento semi personalizado</td>
+      <td><span class="dash">—</span></td>
+      <td><span class="dash">—</span></td>
+      <td><span class="check">✔</span></td>
+      <td><span class="check">✔</span></td>
+      <td><span class="check">✔</span></td>
+    </tr>
+    <tr>
+      <td>Seguimiento mensual de progreso</td>
+      <td><span class="dash">—</span></td>
+      <td><span class="dash">—</span></td>
+      <td><span class="check">✔</span></td>
+      <td><span class="check">✔</span></td>
+      <td><span class="check">✔</span></td>
+    </tr>
+    <tr>
+      <td>Orientación nutricional básica</td>
+      <td><span class="dash">—</span></td>
+      <td><span class="dash">—</span></td>
+      <td><span class="dash">—</span></td>
+      <td><span class="check">✔</span></td>
+      <td><span class="check">✔</span></td>
+    </tr>
+    <tr>
+      <td>Entrenamiento personalizado (sesiones/mes)</td>
+      <td><span class="dash">—</span></td>
+      <td><span class="dash">—</span></td>
+      <td><span class="dash">—</span></td>
+      <td>2 sesiones</td>
+      <td>4 sesiones</td>
+    </tr>
+    <tr>
+      <td>Sesiones de readaptación (acceso preferencial)</td>
+      <td><span class="dash">—</span></td>
+      <td><span class="dash">—</span></td>
+      <td><span class="dash">—</span></td>
+      <td><span class="dash">—</span></td>
+      <td><span class="check">✔</span></td>
+    </tr>
+    <tr>
+      <td>Descuento en productos y eventos Gold Fit</td>
+      <td><span class="dash">—</span></td>
+      <td>5%</td>
+      <td>10%</td>
+      <td>15%</td>
+      <td>20%</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+
+<!-- ══════════════════════════════════════════
+     4. COMPARACIÓN COMPETENCIA
+══════════════════════════════════════════ -->
+<div class="section-label">04 · Posicionamiento vs. Competencia</div>
+<div class="scroll-hint">← Desliza para ver →</div>
+
+<div style="overflow-x:auto; margin-bottom:50px;">
+<div class="comp-grid" style="min-width:540px;">
+  <!-- header row -->
+  <div class="comp-cell head">Criterio</div>
+  <div class="comp-cell head goldfit-head">GOLD FIT S.A.S.</div>
+  <div class="comp-cell head">RPRO Gym</div>
+  <div class="comp-cell head">ROPU Wellness</div>
+
+  <!-- rows -->
+  <div class="comp-cell">Plan mensual desde</div>
+  <div class="comp-cell goldfit-col">$110.000</div>
+  <div class="comp-cell">$55.000</div>
+  <div class="comp-cell">$15.900 / clase</div>
+
+  <div class="comp-cell">Orientación nutricional</div>
+  <div class="comp-cell goldfit-col">✔ Incluida</div>
+  <div class="comp-cell">✘</div>
+  <div class="comp-cell">✘</div>
+
+  <div class="comp-cell">Fisioterapia / readaptación</div>
+  <div class="comp-cell goldfit-col">✔ Incluida</div>
+  <div class="comp-cell">✘</div>
+  <div class="comp-cell">✘</div>
+
+  <div class="comp-cell">Cobertura etaria</div>
+  <div class="comp-cell goldfit-col">Niños → Adulto mayor</div>
+  <div class="comp-cell">Adultos jóvenes</div>
+  <div class="comp-cell">Adultos jóvenes</div>
+
+  <div class="comp-cell">Seguimiento individual</div>
+  <div class="comp-cell goldfit-col">✔ Mensual</div>
+  <div class="comp-cell">General</div>
+  <div class="comp-cell">Parcial</div>
+
+  <div class="comp-cell">Metodología estructurada</div>
+  <div class="comp-cell goldfit-col">6 módulos progresivos</div>
+  <div class="comp-cell">✘</div>
+  <div class="comp-cell">✘</div>
+
+  <div class="comp-cell">Canal de comunicación</div>
+  <div class="comp-cell goldfit-col">Instagram + WhatsApp</div>
+  <div class="comp-cell">Instagram</div>
+  <div class="comp-cell">Instagram</div>
+
+  <div class="comp-cell">Convenios empresariales</div>
+  <div class="comp-cell goldfit-col">✔ En gestión</div>
+  <div class="comp-cell">✘</div>
+  <div class="comp-cell">✘</div>
+</div>
+</div>
+
+<!-- FOOTNOTE -->
+<div class="footnote">
+  <strong>Gold Fit S.A.S.</strong> · NIT en trámite · Buriticá, Antioquia · 2026<br>
+  Precios expresados en pesos colombianos (COP) · Sujetos a actualización según IPC anual.<br>
+  Plan Estudiantil requiere presentación de carné vigente · Convenios corporativos con tarifas diferenciales negociables.<br>
+  Fuentes: Análisis de competencia (Fit Center Gym, Ropu Wellness Club, Rprogym Fitness, 2026) · Estructura interna Gold Fit S.A.S.
+</div>
+
+</body>
+</html>
